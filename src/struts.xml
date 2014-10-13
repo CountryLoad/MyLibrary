@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.SlashesInActionNames" value="true"/>
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="timer"
+				class="com.opensymphony.xwork2.interceptor.TimerInterceptor" />
+
+			<interceptor name="params"
+				class="com.opensymphony.xwork2.interceptor.ParametersInterceptor" />
+		</interceptors>
+
+		<!-- 定义Action(books.action) -->
+		<action name="books" class="action.BookAction" method="listbook">
+			<!-- 定义转发路径对应的字符串名 -->
+			<result name="success">/booklist.jsp</result>
+		</action>
+		
+		<!-- 定义Action(del.action) -->
+		<action name="del" class="action.BookAction" method="deletebook">
+			<!-- 定义转发路径对应的字符串名 -->
+			<result name="success">/Success.jsp</result>
+		</action>
+		
+		<!-- 定义Action(detail.action) -->
+		<action name="details" class="action.BookAction" method="details">
+			<!-- 定义转发路径对应的字符串名 -->
+			<result name="success">/details.jsp</result>
+		</action>
+	</package>
+</struts>    
